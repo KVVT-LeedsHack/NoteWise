@@ -1,0 +1,84 @@
+Lecture 12: Dijkstra’s Algorithm
+
+---
+
+Invented by: Edsger Dijkstra (1956)
+Purpose: Finds shortest path from source node to all other nodes in a graph.
+Important: Only works with non-negative edge weights.
+For negative weights → use Bellman-Ford algorithm.
+
+---
+
+Real-World Applications
+GPS/Google Maps: Calculates shortest routes.
+Network Routing: OSPF protocol uses Dijkstra’s for data routing.
+
+---
+
+How Dijkstra’s Algorithm Works
+Initialization:
+Distance to source = 0.
+Distance to all other nodes = ∞.
+Use a priority queue (min-heap?) to pick node with smallest distance.
+
+Visit Nodes:
+Pick node with smallest distance.
+For each neighbor:
+If a shorter path is found → update distance.
+Add neighbors back to the priority queue.
+
+Repeat:
+Continue until all nodes are visited OR specific target node is found.
+
+---
+
+Example Walkthrough
+Graph:
+    (A)
+   /   \
+  1     4
+ /       \
+(B)---2---(C)
+
+
+Start at A:
+A = 0, B = ∞, C = ∞.
+Queue: [A]
+
+Step 1:
+Visit A → Neighbors:
+A → B = 1 (update B’s distance)
+A → C = 4 (update C’s distance)
+Queue: [B (1), C (4)]
+
+Step 2:
+Visit B (distance 1):
+B → C = 1 + 2 = 3 (update C’s distance from 4 → 3)
+Queue: [C (3)]
+
+Step 3:
+Visit C (distance 3). All neighbors visited → Done.
+
+Final Distances:
+A → B = 1
+A → C = 3
+
+---
+
+Complexity and Performance
+Time Complexity: O((V + E) log V) with priority queue.
+V = number of vertices.
+E = number of edges.
+Best for sparse graphs.
+Doesn’t work with negative edge weights.
+
+---
+
+Final Thoughts
+Dijkstra’s Algorithm = widely used in mapping, network routing, and pathfinding in games.
+Next class: A* algorithm (adds heuristics for faster searches).
+
+---
+
+Homework/Prep:
+Review Dijkstra’s before next class on A*.

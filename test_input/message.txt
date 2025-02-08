@@ -1,0 +1,113 @@
+**Lecture Transcript: Dijkstra's Algorithm**  
+*University of [X] – Algorithms and Data Structures*  
+*Lecture 12: Shortest Path Algorithms – Dijkstra’s Algorithm*  
+*Professor: Dr. [Y]*  
+
+---
+
+**Professor:**  
+"Alright, uh, good morning everyone. Uh, today we’re going to dive into, uh, Dijkstra’s Algorithm, which, um, is a fundamental algorithm in computer science, uh, specifically for finding the shortest path in a graph. So, yeah, um, let’s get started.
+
+Okay, so first, let me just give you a bit of context here. Dijkstra’s Algorithm, uh, was invented by Edsger Dijkstra in, I think, 1956, and, uh, it’s used to find the shortest path from a source node to all other nodes in a graph. Right? So, you have a starting point, and you want to know the quickest way to get to, uh, all the other points.
+
+Now, important thing to note here—*really important*—is that this algorithm only works with graphs where all the edge weights are non-negative. So, no negative weights here. Uh, if you’ve got negative weights, you’re gonna want to look into something like the Bellman-Ford algorithm instead, okay?
+
+---
+
+### **1. Real-World Applications**
+
+So, why do we care about this? Well, uh, Dijkstra’s is used pretty much everywhere. Think about your GPS, right? When you’re using Google Maps, uh, it’s figuring out the shortest route from your house to, like, I don’t know, the nearest coffee shop. That’s Dijkstra’s Algorithm at work—well, a version of it, at least.
+
+Another big one is, uh, network routing. So, protocols like OSPF—Open Shortest Path First—they use Dijkstra’s to, uh, figure out the fastest route for data packets across the internet. Pretty cool, right?
+
+Alright, so, now that you know why it’s useful, let’s get into how it actually works.
+
+---
+
+### **2. How Dijkstra’s Algorithm Works**
+
+So, uh, here’s the idea. You’ve got a graph, and you want to find the shortest path from your source node—let’s call it node A—to every other node. The basic approach is, uh, pretty straightforward. You start at the source, and you, uh, keep expanding outward, always choosing the node that’s closest to the source, based on the distances you've calculated so far.
+
+Let me, uh, just break that down into steps.
+
+1. **Initialize**:  
+   - You start by setting the distance to your source node to 0, because, well, it’s already there, right?  
+   - Then, for all the other nodes, you set the distance to infinity, because, uh, at this point, we don’t know how far they are.  
+   - We also need a priority queue—this helps us quickly find the node with the smallest tentative distance. Uh, think of it like a to-do list, but you always pick the easiest task first.
+
+2. **Visit Nodes**:  
+   - Now, you pick the node with the smallest distance—starting with the source node, of course—and you, uh, look at all its neighbors.  
+   - For each neighbor, you check if you’ve found a shorter path to it. If you have, you update its distance.  
+   - Then you, uh, add these neighbors back into the priority queue.  
+
+3. **Repeat**:  
+   - You just keep doing this until you’ve visited all the nodes, or, if you’re looking for the shortest path to a specific node, until you find it.
+
+Does that make sense so far? *[Pauses]* Yeah? Okay, cool.
+
+---
+
+### **3. Example Walkthrough**
+
+Alright, let’s, uh, work through an example to make this clearer. Imagine we have this graph—uh, let me just sketch this out on the board.  
+
+```
+    (A)
+   /   \
+  1     4
+ /       \
+(B)---2---(C)
+```
+
+So, we have nodes A, B, and C. The edge from A to B has a weight of 1, A to C is 4, and B to C is 2.
+
+Now, let’s say we’re starting at node A, and we want to find the shortest path to all other nodes.
+
+1. **Initialization**:  
+   - Distance to A = 0 (because that’s our source),  
+   - Distance to B = infinity,  
+   - Distance to C = infinity.
+
+Our priority queue starts with just A, because that’s where we begin.
+
+2. **First Step**:  
+   - We pick A from the queue—it’s the only node there right now—and, uh, look at its neighbors.  
+   - From A to B, the distance is 1, which is definitely shorter than infinity, so we update B’s distance to 1.  
+   - From A to C, the distance is 4, so we update C’s distance to 4.
+
+Now, our priority queue has B (with distance 1) and C (with distance 4).
+
+3. **Next Step**:  
+   - We pick B from the queue because it has the smaller distance.  
+   - Now, from B to C, the distance is 1 (to get to B) plus 2 (the edge from B to C), which equals 3. That’s shorter than the current distance to C, which is 4, right? So, we update C’s distance to 3.
+
+Now, C is in the queue with a distance of 3.
+
+4. **Final Step**:  
+   - We pick C from the queue, but since all its neighbors have been visited, we’re done!
+
+So, final distances: A to B is 1, A to C is 3. That’s the shortest path.
+
+---
+
+### **4. Complexity and Performance**
+
+Alright, let’s talk about, uh, performance. Dijkstra’s Algorithm has a time complexity of **O((V + E) log V)** when using a priority queue like a min-heap.
+
+- \( V \) is the number of vertices,  
+- \( E \) is the number of edges.  
+
+So, it’s pretty efficient, especially for sparse graphs. But remember, if you’ve got negative edge weights, this isn’t the algorithm for you.
+
+---
+
+### **5. Final Thoughts**
+
+Alright, that’s the gist of it. Dijkstra’s Algorithm is, uh, super powerful, and you’ll see it pop up in a lot of places—whether that’s routing in networks, mapping apps, or even in video games for pathfinding.
+
+Any questions? *[Pauses]* No? Okay, great. Uh, for next class, make sure to review this and, uh, we’ll talk about the A* algorithm, which builds on some of these concepts but adds heuristics for faster searching in some cases.
+
+Alright, see you all next time!"
+
+---
+
