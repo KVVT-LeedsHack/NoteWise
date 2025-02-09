@@ -3,6 +3,8 @@ import ollama
 from google import genai
 from dotenv import load_dotenv
 import os
+from fastapi.middleware.cors import CORSMiddleware
+
 
 # Load environment variables (for API key)
 load_dotenv()
@@ -14,6 +16,20 @@ if not gemini_api_key:
 client = genai.Client(api_key=gemini_api_key)
 
 app = FastAPI()
+
+# CORS configuration
+origins = [
+    "http://localhost:5173",  # Local development URL
+    "https://your-frontend-url.com",  # Production frontend URL
+]
+
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=origins,  # Allows these domains to make requests
+    allow_credentials=True,
+    allow_methods=["*"],  # Allow all methods (GET, POST, etc.)
+    allow_headers=["*"],  # Allow all headers
+)
 
 def process_files(notes: UploadFile, transcript: UploadFile, model_type: str):
     """
