@@ -2,7 +2,7 @@ import requests
 import os
 
 # Define the FastAPI endpoint URL
-url = "http://127.0.0.1:8000/compare-notes"
+url = "http://127.0.0.1:8000/compare/deepseek"
 
 # Paths to the notes and transcript files
 notes_file_path = "test_input/notes.txt"

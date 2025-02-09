@@ -1,13 +1,35 @@
 from fastapi import FastAPI, File, UploadFile, HTTPException
 import ollama
+import re
+from pydantic import BaseModel
 
-app = FastAPI()
+app = FastAPI(
+    title="Lecture Notes Enhancer API",
+    description="An API to enhance lecture notes by comparing them with a transcript using a locally running LLM.",
+    version="1.0.0",
+)
 
 
-@app.post("/compare-notes")
+class NotesRequest(BaseModel):
+    notes: str
+    transcript: str
+
+
+@app.post(
+    "/compare/deepseek",
+    response_model=NotesRequest,
+    summary="Compare Notes and Transcript",
+    description="Compare lecture notes with a transcript and fill in gaps using an LLM.",
+)
 async def compare_notes(
     notes_file: UploadFile = File(...), transcript_file: UploadFile = File(...)
 ):
+    """
+    Compare lecture notes with a transcript and generate enhanced notes.
+
+    - **notes_file**: Upload a text file containing the lecture notes.
+    - **transcript_file**: Upload a text file containing the lecture transcript.
+    """
     # Read the uploaded files
     notes = await notes_file.read()
     transcript = await transcript_file.read()
