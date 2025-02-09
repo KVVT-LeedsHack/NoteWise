@@ -51,7 +51,7 @@ This FastAPI backend is designed to enhance notes and transcript data by compari
 
 ### Built With
 
-* [[Python][Python.com]][Python-url]
+* [Python](https://python.com)
 * [FastAPI](https://fastapi.tiangolo.com/)
 * [Ollama](https://ollama.com/)
 * [Gemini API](https://developers.google.com/genai)
