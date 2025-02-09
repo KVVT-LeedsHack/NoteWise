@@ -26,6 +26,7 @@ files = {
 }
 
 try:
+    '''
     # Time the time taken for DeepSeek to enhance the notes
     start_time  = time.time()   
     
@@ -50,7 +51,7 @@ try:
     # Calculate the time taken for DeepSeek to enhance the notes
     end_time = time.time()  
     print("Time taken for DeepSeek to enhance the notes: ", end_time - start_time)
-    
+    '''
     # Time the time taken for Gemini to enhance the notes   
     g_start_time  = time.time()
         
