@@ -15,9 +15,13 @@ class NotesRequest(BaseModel):
     transcript: str
 
 
+class EnhancedNotesResponse(BaseModel):
+    enhanced_notes: str
+
+
 @app.post(
     "/compare/deepseek",
-    response_model=NotesRequest,
+    response_model=EnhancedNotesResponse,
     summary="Compare Notes and Transcript",
     description="Compare lecture notes with a transcript and fill in gaps using an LLM.",
 )
