@@ -20,7 +20,7 @@ app = FastAPI()
 # CORS configuration
 origins = [
     "http://localhost:5173",  # Local development URL
-    "https://notewise-frontend.vercel.app/",  # Production frontend URL
+    "https://notewise-frontend-9c80ysq2s-vindhyaa-saravanans-projects.vercel.app/",  # Production frontend URL
 ]
 
 app.add_middleware(
