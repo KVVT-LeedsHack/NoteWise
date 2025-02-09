@@ -1,4 +1,5 @@
 import requests
+import os
 
 # Define the FastAPI endpoint URL
 url = "http://127.0.0.1:8000/compare-notes"
@@ -8,6 +9,9 @@ notes_file_path = "test_input/notes.txt"
 transcript_file_path = "test_input/message.txt"
 
 # Output file to save the enhanced notes
+# check if the test_output folder exists, if not create it
+if not os.path.exists("test_output"):
+    os.makedirs("test_output")
 output_file_path = "test_output/enhanced_notes.txt"
 
 # Prepare the files for the request
