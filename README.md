@@ -5,7 +5,7 @@
     <img src="images/logo.jpeg" alt="Logo" width="80" height="80">
   </a>
 
-<h3 align="center">AI-Powered Notes Enhancement with Gemini and Ollama</h3>
+<h3 align="center">NoteWise: AI-Powered Notes Enhancement</h3>
   
   <p align="center">
     A FastAPI backend solution for comparing and enhancing student-written lecture notes with transcript data using Gemini and Ollama.
@@ -51,7 +51,7 @@ This FastAPI backend is designed to enhance notes and transcript data by compari
 
 ### Built With
 
-* [![Python][Python.com]][Python-url]
+* [[Python][Python.com]][Python-url]
 * [FastAPI](https://fastapi.tiangolo.com/)
 * [Ollama](https://ollama.com/)
 * [Gemini API](https://developers.google.com/genai)
