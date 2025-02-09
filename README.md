@@ -2,9 +2,9 @@
 To run this FastAPI backend:
 
 ### 1. Install Ollama.
-Choose an appropriate version [here](https://ollama.com/download).
-You should also pull a model you want to use:
-`ollama pull deepseek-r1:1.5b`
+Choose an appropriate version [here](https://ollama.com/download).\
+You should also pull a model you want to use:\
+`ollama pull deepseek-r1:1.5b`\
 (This will download the model to your machine)
 
 ### 2. Install required python libraries.
