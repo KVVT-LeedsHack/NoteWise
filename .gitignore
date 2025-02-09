@@ -2,3 +2,6 @@ __pycache__/
 venv/
 lenv/
 test_output/
+.env
+myenv/
+env/

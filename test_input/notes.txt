@@ -9,12 +9,6 @@ For negative weights → use Bellman-Ford algorithm.
 
 ---
 
-Real-World Applications
-GPS/Google Maps: Calculates shortest routes.
-Network Routing: OSPF protocol uses Dijkstra’s for data routing.
-
----
-
 How Dijkstra’s Algorithm Works
 Initialization:
 Distance to source = 0.
@@ -32,14 +26,7 @@ Continue until all nodes are visited OR specific target node is found.
 
 ---
 
-Example Walkthrough
-Graph:
-    (A)
-   /   \
-  1     4
- /       \
-(B)---2---(C)
-
+Example
 
 Start at A:
 A = 0, B = ∞, C = ∞.
@@ -69,13 +56,9 @@ Complexity and Performance
 Time Complexity: O((V + E) log V) with priority queue.
 V = number of vertices.
 E = number of edges.
-Best for sparse graphs.
-Doesn’t work with negative edge weights.
-
 ---
 
 Final Thoughts
-Dijkstra’s Algorithm = widely used in mapping, network routing, and pathfinding in games.
 Next class: A* algorithm (adds heuristics for faster searches).
 
 ---
